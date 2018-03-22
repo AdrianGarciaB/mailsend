@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Definicion de variables
+subject=$1
+cuerpo=$2
+correo=$3
+
+# Obtiene el numero de correos introducidos
+numerocorreos=$(($# - 2))
+
+for x in `seq 1 1 $numerocorreos`
+do
+echo "$cuerpo" | mail -s "$subject" $3
+shift
+done

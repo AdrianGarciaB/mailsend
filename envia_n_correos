@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Definicion de variables
+correo=$1
+numerocorreos=$2
+asunto=$3
+cuerpo=$4
+
+# Comprueba que esten todos los parametros
+if [ $# -ne 4 ]
+then
+	echo "$0: Error. No se han indicado los parámetros necesarios."
+	echo "Ejemplo:"
+	echo "$0 <direccióndecorreo> <número de correos> <asunto> <cuerpo del correo>"
+	exit 1
+fi
+
+for x in `seq 1 1 $2`
+do
+echo "$4" | mail -s "$3" $1
+done
